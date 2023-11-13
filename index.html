@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Relógio 8 Bits</title>
+  <style>
+    body {
+      font-family: 'Press Start 2P', cursive;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #000;
+      color: #FFA500;
+    }
+
+    #clock {
+      font-size: 3em;
+    }
+  </style>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P">
+</head>
+<body>
+  <div id="clock"></div>
+
+  <script>
+    function atualizarRelogio() {
+      var agora = new Date();
+      var horas = agora.getHours().toString().padStart(2, '0');
+      var minutos = agora.getMinutes().toString().padStart(2, '0');
+      var segundos = agora.getSeconds().toString().padStart(2, '0');
+
+      var horaFormatada = horas + ':' + minutos + ':' + segundos;
+      document.getElementById('clock').textContent = horaFormatada;
+    }
+
+    setInterval(atualizarRelogio, 1000);
+    atualizarRelogio(); // Atualiza imediatamente ao carregar a página
+  </script>
+</body>
+</html>
